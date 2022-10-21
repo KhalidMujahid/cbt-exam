@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam start | CBT exam</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font/css/all.min.css">
+    <style>
+        textarea {
+            resize: none;
+            height: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/submit" method="post">
+        <div class="container">
+            <div class="border p-4 mt-4">
+                <div class="input-group align-items-center">
+                    <p><b>Full name: </b></p>
+                    <input type="text" class="mx-3 form-control" value="<%= info.fname %> <%= info.lname %>" readonly>
+                </div>
+                <div class="input-group align-items-center">
+                    <p><b>Level: </b></p>
+                    <input type="text" class="mx-3 form-control" value="<%= info.level %>" readonly>
+                </div>
+                <div class="input-group align-items-center">
+                    <p><b>Matric number: </b></p>
+                    <input type="text" name="matnumber" class="mx-3 form-control" value="<%= info.matnumber %>"
+                        readonly>
+                </div>
+                <div class="input-group align-items-center">
+                    <p><b>Departement: </b></p>
+                    <input type="text" class="mx-3 form-control" value="<%= info.dept %>" readonly>
+                </div>
+                <div class="input-group align-items-center">
+                    <p><b>Course code: </b></p>
+                    <input type="text" class="mx-3 form-control" value="COM 121" readonly>
+                </div>
+            </div>
+            <!-- Question -->
+            <% question.forEach(d=> {%>
+                <div class="my-3 border p-4">
+                    <div>
+                        <h3>Question: <%= d.number %>
+                        </h3>
+                    </div>
+                    <div class="question-content">
+                        <textarea name="question" class="form-control" readonly><%=d.question %></textarea>
+                    </div>
+                    <hr class="hr">
+                    <div class="answer d-flex flex-column">
+                        <% d.option.forEach((q,i)=> {%>
+                            <div>
+                                <%= i +1 %> <input type="checkbox" name="answer" value="<%= q %>">
+                                    <%= q %>
+                            </div>
+                            <%}) %>
+                    </div>
+                </div>
+                <%}) %>
+                    <!-- Submit button -->
+                    <div class="my-5 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

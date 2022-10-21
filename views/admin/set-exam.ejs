@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set exam | Dashboard</title>
+  <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container bg-secondary p-3 text-center">
+        <h3 class="text-white">Admin Dashboard</h3>
+      </div>
+      <div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/dashboard">Home</a>
+          <i class="fas fa-home"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/add_student">Add student</a>
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/set_exam">Set exam question</a>
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/all_students">All students</a>
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/get_result">Get results</a>
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/questions">All questions</a>
+          <i class="fas fa-question"></i>
+        </div>
+        <div class="border p-3 hover d-flex justify-content-between align-items-center">
+          <a href="/about">About us</a>
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="border bg-secondary p-3 hover d-flex flex-column justify-content-center align-items-center"
+          style="height: 15vh;">
+          <h6 class="text-white">Powered by Hi-Tech</h6>
+          <span class="text-white">&copy; 2022</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="container">
+        <div class="breadcrumb mt-4">
+          <h4 class="breadcrumb-item"><i class="fas fa-home"></i> Dashboard</h4>
+          <h4 class="text-primary breadcrumb-item">Set exam</h4>
+        </div>
+        <hr>
+      </div>
+      <!-- dashboard -->
+      <div class="container">
+        <div class="my-3">
+          <form action="/form_generate" class="d-flex" method="get">
+            <input id="number_questions" name="generate" type="number" class="form-control"
+              placeholder="Enter total number of questions you want to set">
+            <button type="submit" id="generate_question" class="btn btn-success">Generate form</button>
+          </form>
+        </div>
+        <form action="/questions" method="post" style="overflow-y: hidden;">
+          <% if(error) {%>
+            <div class="alert alert-success">
+              <p>
+                <%= error %>
+              </p>
+            </div>
+            <% } %>
+              <% if(number){%>
+                <div class="border p-4 my-3" id="templates">
+                  <div class="my-3">
+                    <select name="number" class="form-select">
+                      <% for (let i=1; i <=number; i++) {%>
+                        <option value="<%= i %>">Question <%= i %>
+                        </option>
+                        <%}%>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <textarea name="question" class="form-control" placeholder="Question"></textarea>
+                  </div>
+                  <div class="my-3">
+                    <p><b>Options</b></p>
+                  </div>
+                  <div class="input-group align-items-center">
+                    A <input type="text" name="option" class="form-control mx-3 mt-3" placeholder="Option A">
+                    B <input type="text" name="option" class="form-control mx-3 mt-3" placeholder="Option B">
+                  </div>
+                  <div class="input-group align-items-center">
+                    C <input type="text" name="option" class="form-control mx-3 mt-3" placeholder="Option C">
+                    D <input type="text" name="option" class="form-control mx-3 mt-3" placeholder="Option D">
+                  </div>
+                  <div class="my-3">
+                    <p><b>Answer</b></p>
+                  </div>
+                  <div class="form-group">
+                    <select name="answer" class="form-select">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="my-5">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit Question</button>
+                  </div>
+                </div>
+                <%}%>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

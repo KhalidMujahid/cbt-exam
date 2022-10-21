@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Login CBT-examination | CBT-exam</title>
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font/css/all.min.css">
+    <style>
+        body {
+            background-image: url("../assets/photo-1516321497487-e288fb19713f.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height:80vh">
+        <form action="/auth" method="post" class="bg-white shadow rouned border p-4 w-50">
+            <% if(error) {%>
+                <div class="my-3 alert alert-danger">
+                    <h5>Alert message</h5>
+                    <p>
+                        <%= error %>
+                    </p>
+                </div>
+                <%}%>
+                    <div class="form-group my-3">
+                        <input type="text" name="adminId" class="form-control" placeholder="Admin ID">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="text" name="password" class="form-control" placeholder="Admin password">
+                    </div>
+                    <div class="form-group my-3">
+                        <button type="submit" class="loginBtn btn btn-success form-control">Login <i
+                                class="fas fa-unlock"></i></button>
+                    </div>
+        </form>
+    </div>
+</body>
+
+</html>

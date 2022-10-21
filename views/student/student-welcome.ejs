@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student CBT-examination | CBT-exam</title>
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font/css/all.min.css">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height:80vh">
+        <form action="/start" method="get" class="border p-4 w-50">
+            <div class="form-group my-3">
+                <div class="input-group align-items-center my-3">
+                    <label for="fullname">Full name:</label>
+                    <input type="text" value="<%= info.fname %> <%= info.lname %>" class="mx-2 rounded form-control"
+                        readonly>
+                </div>
+                <div class="input-group align-items-center my-3">
+                    <label for="matnumber">Matric number:</label>
+                    <input type="text" name="matnumber" value="<%= info.matnumber %>" class="mx-2 rounded form-control"
+                        readonly>
+                </div>
+                <div class="input-group align-items-center my-3">
+                    <label for="dept">Depatement:</label>
+                    <input type="text" value="<%= info.dept %>" class="mx-2 rounded form-control" readonly>
+                </div>
+                <div class="input-group align-items-center my-3">
+                    <label for="level">Level:</label>
+                    <input type="text" value="<%= info.level %>" class="mx-2 rounded form-control" readonly>
+                </div>
+                <div class="input-group align-items-center my-3">
+                    <label for="exam">Exam course code:</label>
+                    <!-- <select name="exam_code" class="form-select">
+                        <option value="COM 121">COM 121</option>
+                        <option value="COM 122">COM 122</option>
+                        <option value="COM 123">COM 123</option>
+                        <option value="COM 124">COM 124</option>
+                        <option value="COM 125">COM 125</option>
+                    </select> -->
+                    <input type="text" value="COM 121" class="form-control" readonly>
+                </div>
+                <button class="loginBtn btn btn-success form-control">Start exam <i class="fas fa-pen"></i></button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
